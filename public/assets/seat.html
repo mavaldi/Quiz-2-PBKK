@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #db3434;
+            margin-bottom: 50px;
+            padding: 15px;
+            text-align: center;
+            color: #000000;
+            font-size: 24px;
+        }
+
+        .seat-map {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 600px;
+        }
+
+        .seat {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            background-color: #bdc3c7;
+            border: 1px solid #34495e;
+            cursor: pointer;
+        }
+
+        .seat.selected {
+            background-color: #3498db;
+        }
+
+        #submitBtn {
+            width: 150px;
+            height: 50px;
+            margin-top: 50px;
+            padding: 10px;
+            background-color: #2eae4c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Seat Selection
+    </header>
+
+    <div class="seat-map" id="seatMap">
+        <!-- You can generate the seats dynamically using JavaScript -->
+        <!-- For simplicity, I'm manually creating a 6x6 seat grid -->
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <!-- ... Repeat for the desired number of seats -->
+    </div>
+
+    <a href="payment.html"><button id="submitBtn">Submit</button></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const seatMap = document.getElementById('seatMap');
+            const submitBtn = document.getElementById('submitBtn');
+
+            seatMap.addEventListener('click', function (event) {
+                const seat = event.target;
+
+                if (seat.classList.contains('seat')) {
+                    seat.classList.toggle('selected');
+                }
+            });
+
+            submitBtn.addEventListener('click', function () {
+                const selectedSeats = document.querySelectorAll('.seat.selected');
+                alert(`Selected seats: ${selectedSeats.length > 0 ? [...selectedSeats].map(seat => seat.textContent).join(', ') : 'None'}`);
+            });
+        });
+    </script>
+</body>
+</html>
